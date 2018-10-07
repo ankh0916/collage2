@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>let's make a collage</title>
+	<style type="text/css">
+	*{margin: 0px; padding:0px;}
+	 body{
+	 	background-color: gray;
+	 	background-image: url(back3.png);
+		background-repeat: no-repeat;
+		background-size: 40% 100%;
+		background-position: center;
+		background-attachment: fixed;
+	 	 }
+
+
+	 	#Text
+		{
+			width:100%;
+
+			position: relative;
+		}
+
+
+		#back2 {position: absolute; background-position: center;
+				width: 40%; height: 100%; margin-left: 480px;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				animation: animate 2s ease 1 forwards; animation-delay: 1s; animation-play-state: paused;
+				}
+
+			@keyframes animate
+			{
+			0% {height: 100%}
+			100%{margin-left: 400px; }
+		}
+
+
+		#ttt{ width: 150px; height: 160px;
+					 border-radius: 50% ;
+					position: absolute;
+					margin-top: 20px;
+					animation: drop 8s infinite;}
+			@keyframes drop{
+				from{margin-left:100px; }
+				to{margin-left:500px; }
+							}	
+
+
+		#uuu{width: 50px; height: 5px;
+					 border-radius: 10% ;
+					position: absolute;
+					margin-top: 25px;
+					margin-left: 500px;
+					animation: drop 8s infinite;}
+			@keyframes drop{
+				from{margin-left:300px;}
+				to{margin-left: 500px;}
+			}					
+
+	</style>
+</head>
+<body>
+	
+	
+	<div id="uuu"><img src="f1.png" id="ttt"></div>
+	
+	<div id="ttt"><img src="f7.png" id="ttt"></div>
+	
+	<img src="back2.png" id="back2">
+
+	<div id="title" style="color: black; text-align: center; font-size: 100px; margin-top: 0px;">make a collage</div>
+	
+
+	<script type="text/javascript">
+		back2.onclick = function(){
+				back2.style.animationPlayState = "running";
+
+		var total = 0;
+			for(var i=0;i<5;i++){
+				var j = document.getElementById("ttt");
+				var newttt = j.cloneNode(true);
+				newttt.style.left = Math.random()*250 + "px";/전체창으로 바꿔줌/
+				newttt.style.top = Math.random()*250 + "px";
+				newttt.style.animationDuration = Math.random()*50 + "s";
+				document.body.appendChild(newttt);
+			}
+		
+
+		
+			for(var o=0;o<15;o++){
+
+				var r = document.getElementById("uuu");
+				var newr = r.cloneNode(true);
+				newr.style.left = Math.random()*300 + "px";
+				newr.style.top = Math.random()*250 + "px";
+				newttt.style.animationDuration = Math.random()*20 + "s";
+				newr.style.background = randomColor();
+				document.body.appendChild(newr);
+			}
+				function randomColor(){                       
+					var a = Math.random()*255;
+					var b = Math.random()*255;
+					var c = Math.random()*255;
+					var text = "rgb("+a+","+b+","+c+")";
+					return text;
+				}
+					}
+					
+	</script>
+
+</body>
+</html>
